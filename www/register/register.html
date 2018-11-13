@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Language set to English -->
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="CECEWSN" />
+    <meta name="description" content="CECEWSN is the Chemicals of Emerging Concern Early Warning Social Network a service that allows envinronmental chemist's access to process and share their data using state-of-the-art algorithms.">
+
+    <!-- External resources -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900|Lato" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/register.css">
+
+    <!-- Favicon -->
+    <!--<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>-->
+    
+    <!-- Title -->
+    <title>CECEWSN | Chemicals of Emerging Concern Early Warning Social Network | Sign up for early access </title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__heading">CECEWSN</h1>
+        <h2 class="header__subheading">Chemicals of Emerging Concern Early Warning Social Network</h2> 
+        <nav id="header__nav">
+			
+                <ul>
+                    <li class="current">
+                        <a href="../../index.html">landing-page</a>
+                    </li>
+                    <li id="register">
+                        <a href="../register/register.html">Register</a>
+                    </li>
+                    <li>
+                        <a href="../analysis/analysis.html">Statistics</a>
+                    </li>
+
+                </ul>
+    
+        </nav>       
+    </header>
+    <main class="register">
+        <h1 class="register__heading">Analyse, collaborate, search</h1>
+        <form
+            class="register__form"
+            method="POST"
+            action="../../php/register.php"
+            accept-charset="UTF-8">
+            <header class="form__header">
+                <h2 class="form__header__heading">Register for early access to CECEWSN</h2>
+            </header>
+            <label class="form__label">Name:</label>
+            <input
+                class="form__input"
+                name="name"
+                type="text"
+                placeholder="Enter your first name"
+                maxlength="30"
+                required>
+            <label class="form__label">Email:</label>
+            <input 
+                class="form__input"
+                name="email"
+                type="email"
+                placeholder="Enter your email address"
+                title="The domain portion of the email address is invalid (the portion after the @)."
+                pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$"
+                required>
+            <input
+                class="form__button"
+                name="submit"
+                type="submit"
+                value="Register today">
+        </form>
+    </main>
+   <!-- Scripts -->
+   <!--<script src="js/register.js"></script>-->
+</body>
+</html>

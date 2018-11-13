@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="CECEWSN" />
+    <meta name="description" content="CECEWSN is the Chemicals of Emerging Concern Early Warning Social Network a service that allows envinronmental chemist's access to process and share their data using state-of-the-art algorithms.">
+
+    <!-- External resources -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900|Lato" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/analysis.css">
+    <link class="include" rel="stylesheet" type="text/css" href="plugins/jquery.jqplot.min.css" />
+
+    <!-- Title -->
+    <title>Analysis Page</title>
+
+    <!-- Script -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery.jqplot.js"></script>
+    <script class="include" type="text/javascript" src="plugins/jqplot.barRenderer.min.js"></script>
+    <script class="include" type="text/javascript" src="plugins/jqplot.categoryAxisRenderer.min.js"></script>
+    <script type="text/javascript" src="js/graph.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+</head>
+<body>
+    <!-- header -->
+    <header class="header">
+        <h1 class="header__heading">CECEWSN</h1>
+        <h2 class="header__subheading">Chemicals of Emerging Concern Early Warning Social Network</h2>
+        <nav id="header__nav">
+			
+            <ul>
+                <li class="current">
+                    <a href="../../index.html">landing-page</a>
+                </li>
+                <li id="register">
+                    <a href="../register/register.html">Register</a>
+                </li>
+                <li>
+                    <a href="../analysis/analysis.html">Statistics</a>
+                </li>
+
+            </ul>
+
+    </nav>  
+    </header>
+    <div class="analysis">
+        <div class="summary">
+        <p>The number of clicks and enrollments on the site will be displayed in a histogram. Changes in the number of clicks on the website and the number of registered users will be stored in the database, and the data in the database will be displayed in the form of a graph. As shown in the figure, the number of clicks on October 10 is 50, and on October 11 is 45. In addition, the abscissa of the histogram is the date, the ordinate is the number of clicks, and all data is updated once a day.</p>
+        </div>
+        <div class="graph">
+                <div id="show-data"><span>Click Times: </span><span id="info"></span></div>
+                <div id="chart"></div>
+        </div>
+    </div>
+    <div id = "test"></div>
+</body>
+</html>

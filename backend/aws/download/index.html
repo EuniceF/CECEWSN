@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Listings</title>
+    </head>
+    <body>
+        <div id="files">
+            <p>Test</p>
+        </div>
+    </body>
+    <script type="text/javascript">
+        // TODO: This will emulate the react app state
+        var files;
+
+        // Get fetch api to listing.php
+        document.onload = getFileList(`listing.php`);                            
+
+        function getFileList(url = ``) {
+            console.log("Get file list called.");
+            return fetch(url, {
+                method: "GET", // *GET, POST, PUT, DELETE, etc.
+                mode: "cors", // no-cors, cors, *same-origin
+                cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: "same-origin", // include, same-origin, *omit
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+                redirect: "follow", // manual, *follow, error
+                referrer: "no-referrer", // no-referrer, *client
+            })
+            .then(response => response.json()) // parses response to JSON
+            .then(response => {
+                                if (response.response === 'success') {
+                                    files = response.files; // set state in download.js
+                                    // TODO: Set response files to an state
+                                    createNodes(files);
+                                }
+            });
+        }
+
+        function downloadHandler(event) {
+            console.log("Download file called!");
+            downloadFile(`download.php`, {"userName": "user_testUser", "jobNumber": "job_testJobNumber", "filePath": event.target.href});
+            //downloadFile(`download.php`, {"filePath": event.target.href}); // TODO: Only call if file was successfully created.
+            //event.preventDefault();
+        }
+
+        function createNodes(files) {
+            var fileContainer = document.getElementById("files"); // get the download container
+            var newList = document.createElement("ul"); // create a new list
+            newList.className = "download__list";
+
+            for (i = 0; i < files.length; i++) {
+                var newListItem = document.createElement("li");
+                newListItem.className = "download__list__item";
+                newList.appendChild(newListItem);
+
+                var newLink = document.createElement("a"); // create a new link for each file
+                newLink.className = "download__link"; // add the class to the link
+                newLink.href = files[i];
+                newLink.addEventListener("click", downloadHandler);
+                newLink.download = "";
+                
+                var newFile = document.createTextNode(files[i]); // get the text representing the file
+                
+                newListItem.appendChild(newLink)
+                newLink.appendChild(newFile); // add the file text to the link
+                fileContainer.appendChild(newListItem); // add the links to the download container
+            }
+        }
+
+        function downloadFile(url = ``, data = {}) {
+            // TODO: Need to send name as key
+            return fetch(url, {
+                method: "POST", // *GET, POST, PUT, DELETE, etc.
+                mode: "cors", // no-cors, cors, *same-origin
+                cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: "same-origin", // include, same-origin, *omit
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                    //"Content-Disposition": "attachment"
+                },
+                redirect: "follow", // manual, *follow, error
+                referrer: "no-referrer", // no-referrer, *client
+                body: JSON.stringify(data), // body data type must match "Content-Type" header
+            })
+            .then(response => response.json()) // parses response to JSON
+            .then(response => {
+                                if (response.response === 'success') { // TODO: No response so far
+                                    files = response.files; // set state in download.js
+                                    // TODO: Set response files to an state
+                                    
+                                }
+            });
+        }
+    </script>
+</html>

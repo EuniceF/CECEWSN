@@ -1,0 +1,24 @@
+/**
+@author: Calvin Lowe [Yggdrasil]
+@date: 10.09.18
+Note: see https://coolors.co/app for generating colour palettes
+**/
+
+/*=============================================================================
+#   Colors
+=============================================================================*/
+:root {
+    /* Theme colours */
+    --primary-dark-colour: #222;
+    --secondary-dark-colour: #333;
+    --primary-light-colour: #eee;
+    --primary-accent-colour: #228b22;
+    --primary-accent-colour-hover: #2ea22e;
+    --secondary-accent-colour: ;
+    --dark-accent-colour: #111;
+
+    --success-green: #4BB543;
+    --hover-green: rgb(77, 203, 68);
+    --cancel-red: red;
+    --hover-red: rgb(234, 79, 79);
+}
